@@ -139,6 +139,17 @@ html{scroll-behavior:smooth;}
 @media(min-width:768px){#cap-grid{grid-template-columns:repeat(3,1fr);}}
 .cap-cell{padding:2rem 2rem 2.5rem;display:flex;flex-direction:column;gap:1rem;background:#F5F4F0;border:none;}
 
+/* ── Foundations rows ── */
+.found-row{padding-left:1rem;padding-right:1rem;}
+.found-desc{margin-bottom:.75rem;}
+@media(min-width:768px){
+  .found-row{display:grid;grid-template-columns:1fr repeat(3,auto);gap:1.5rem;align-items:center;}
+  .found-desc{margin-bottom:0;}
+  .found-meta{display:contents;}
+  .found-meta > div{text-align:center;}
+  .found-meta > div:last-child{text-align:right;}
+}
+
 /* ── Services table ── */
 #included table{font-feature-settings:'tnum';}
 @media(max-width:767px){
@@ -155,65 +166,184 @@ html{scroll-behavior:smooth;}
 .faq-item p{animation:faqFade .4s ease;}
 @keyframes faqFade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
 
-/* ── Mobile tweaks ── */
+/* ─────────────────────────────────────────
+   MOBILE ≤ 767px
+───────────────────────────────────────── */
 @media(max-width:767px){
+
+  /* Utility */
   .hide-mobile{display:none!important;}
-  .hero-bottom{flex-direction:column;align-items:flex-start;gap:1.25rem;}
+  .hero-bottom{flex-direction:column;align-items:flex-start;gap:1.5rem;}
 
-  /* ── TYPOGRAPHY, mobile impact ── */
+  /* ── HERO ─────────────────────────────── */
+  #hero h1{font-size:15.5vw!important;line-height:.88!important;}
+  /* more breathing room: top for nav, sides uniform, bottom for CTA */
+  #hero .relative.z-20{
+    padding-top:6rem!important;
+    padding-bottom:3rem!important;
+    padding-left:1.5rem!important;
+    padding-right:1.5rem!important;
+  }
+  #hero p.font-mono{font-size:.72rem!important;margin-top:1.25rem!important;}
 
-  /* Hero headline: big and full-bleed */
-  #hero h1{font-size:19vw!important;line-height:.86!important;}
+  /* ── GLOBAL SECTION PADDING ─────────────*/
+  section,footer#contact{
+    padding-left:1.5rem!important;
+    padding-right:1.5rem!important;
+  }
+  /* Consistent vertical rhythm across sections */
+  section{
+    padding-top:3rem!important;
+    padding-bottom:3rem!important;
+  }
 
-  /* Statement / positioning headline */
-  #statement h2,
-  section h2.font-display{font-size:2.6rem!important;line-height:1.05!important;}
+  /* ── TYPOGRAPHY SCALE ────────────────── */
+  /* Section labels mono */
+  .font-mono.text-\[10px\]{font-size:.65rem!important;}
+  /* Hero sub-labels */
+  #hero .font-mono{font-size:.65rem!important;}
+  /* Section headlines */
+  #about h2{font-size:1.85rem!important;line-height:1.08!important;}
+  #statement h2{font-size:1.85rem!important;line-height:1.08!important;}
+  #principles h2{font-size:1.85rem!important;line-height:1.08!important;}
+  #pull-quote h2{font-size:1.85rem!important;line-height:1.1!important;}
+  #contact h2.font-display{font-size:2.5rem!important;line-height:.92!important;}
+  /* Foundations headline */
+  .bg-\[\#1A1A18\] h2.font-display{font-size:1.85rem!important;line-height:1.08!important;}
+  /* Card/cell headings */
+  .cap-cell h3{font-size:1.7rem!important;}
+  .meth-cell h3{font-size:1.55rem!important;}
+  /* Principles row titles */
+  .fr h4{font-size:1.1rem!important;}
+  /* FAQ titles */
+  .faq-item summary span{font-size:1rem!important;line-height:1.4!important;}
+  /* Body text: min 13px */
+  .font-sans.text-sm{font-size:.82rem!important;line-height:1.85!important;}
 
-  /* Section headlines (research, pull quote) */
-  #research h2{font-size:2.3rem!important;line-height:1.05!important;}
-  #pull-quote h2{font-size:2.5rem!important;line-height:1.05!important;}
+  /* ── ABOUT ──────────────────────────── */
+  #about .grid{display:flex!important;flex-direction:column!important;gap:2rem!important;}
+  #about img{max-width:100%!important;}
+  /* credentials row: wrap nicely */
+  #about .flex.flex-wrap{gap:.75rem 1.5rem!important;}
 
-  /* Contact footer headline */
-  #contact h2.font-display{font-size:3.2rem!important;line-height:.9!important;}
+  /* ── CAPABILITIES CARDS ─────────────── */
+  .cap-cell{padding:1.75rem 1.25rem 2rem!important;}
 
-  /* Capability card titles */
-  .cap-cell h3{font-size:2.1rem!important;}
+  /* ── FOUNDATIONS ─────────────────────── */
+  /* Header row hidden on mobile — context clear from rows */
+  .foundations-header{display:none!important;}
+  /* Rows already use .found-row flex layout */
+  .found-desc{margin-bottom:.875rem;}
+  .found-meta{gap:.5rem!important;}
+  /* Footer: stack vertically, full-width CTA */
+  #foundations-footer{
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    gap:1.25rem!important;
+  }
+  #foundations-footer > div{width:100%!important;}
+  #foundations-footer a{
+    width:100%!important;
+    justify-content:center!important;
+    text-align:center!important;
+  }
+  /* £0 and £1750: side by side on mobile */
+  #foundations-footer .flex-col{
+    flex-direction:row!important;
+    justify-content:space-between!important;
+    align-items:baseline!important;
+    gap:1rem!important;
+    width:100%!important;
+  }
 
-  /* Methodology card titles */
-  .meth-cell h3{font-size:1.8rem!important;}
-  .meth-cell .font-display.text-\\[4\\.5rem\\]{font-size:3rem!important;}
+  /* ── DARK BAR CTA ────────────────────── */
+  .dark-cta-row{flex-direction:column!important;align-items:stretch!important;gap:1rem!important;}
+  .dark-cta-row > div:first-child{width:100%!important;}
+  .dark-cta-row .flex.flex-wrap{
+    flex-direction:column!important;
+    width:100%!important;
+    gap:.625rem!important;
+  }
+  .dark-cta-row a{width:100%!important;justify-content:center!important;}
 
-  /* Research row titles */
-  .fr h4{font-size:1.4rem!important;}
+  /* ── METHODOLOGY ─────────────────────── */
+  #meth-grid{grid-template-columns:1fr!important;}
+  .meth-cell{
+    border-right:none!important;
+    border-bottom:1px solid rgba(222,221,216,.4)!important;
+    padding:1.75rem 1.25rem!important;
+  }
+  .meth-cell:last-child{border-bottom:none!important;}
 
-  /* Section padding tighter on mobile */
-  .section-mobile-pad{padding-left:1.25rem!important;padding-right:1.25rem!important;}
+  /* ── STATEMENT / WHY IT MATTERS ─────── */
+  #statement .grid{display:flex!important;flex-direction:column!important;gap:2rem!important;}
+  #statement .flex.flex-wrap.gap-3{flex-direction:column!important;gap:.75rem!important;}
+  #statement a{width:100%!important;justify-content:center!important;}
 
-  /* Research rows: stack */
-  .fr{flex-direction:column!important;align-items:flex-start!important;}
-  .pl-17{padding-left:3.25rem;}
+  /* ── PRINCIPLES ──────────────────────── */
+  #principles-intro-grid{display:flex!important;flex-direction:column!important;gap:2rem!important;}
+  .fr{flex-direction:column!important;align-items:flex-start!important;gap:.75rem!important;}
+  /* hide decorative side graphics on mobile */
+  .fr > div.hide-mobile{display:none!important;}
 
-  /* Cap cells */
-  .cap-cell{padding:1.5rem 1.25rem 2rem!important;}
+  /* ── WHAT'S INCLUDED TABLE ───────────── */
+  /* No scroll: hide Others column, show Service + FMT + Value */
+  #included table thead th:nth-child(3),
+  #included table tbody td:nth-child(3){display:none!important;}
+  #included table{min-width:0!important;width:100%!important;}
+  #included .overflow-x-auto{overflow:visible!important;margin:0!important;padding:0!important;}
+  #included table td,#included table th{padding-left:.5rem!important;padding-right:.5rem!important;}
+  #included table th:first-child,#included table td:first-child{padding-left:0!important;}
 
-  /* Pull quote */
+  /* ── FAQ ─────────────────────────────── */
+  .faq-item summary{padding-top:1.25rem!important;padding-bottom:1.25rem!important;}
+  .faq-item p{padding-right:0!important;font-size:.82rem!important;}
+
+  /* ── CONTACT ─────────────────────────── */
+  #contact > div > div.grid{display:flex!important;flex-direction:column!important;gap:2rem!important;}
+  #contact .space-y-5{gap:.875rem!important;}
+  #contact .fi{font-size:.72rem!important;}
+
+  /* ── PULL QUOTE ──────────────────────── */
   #pull-quote{padding-top:3rem!important;padding-bottom:3rem!important;}
+  /* Vitruvian ghost: smaller on mobile */
+  #pull-quote svg{width:260px!important;height:260px!important;}
 }
 
-/* ── Small phones (≤380px) ── */
+/* ─────────────────────────────────────────
+   SMALL PHONES ≤ 380px
+───────────────────────────────────────── */
 @media(max-width:380px){
-  #hero h1{font-size:17vw!important;line-height:.88!important;}
-  #contact h2.font-display{font-size:2.7rem!important;}
-  .cap-cell{padding:1.25rem 1rem 1.75rem!important;}
+  #hero h1{font-size:14vw!important;line-height:.9!important;}
+  #hero .relative.z-20{padding-top:5.5rem!important;}
+  #about h2,#statement h2,#principles h2,#pull-quote h2{font-size:1.65rem!important;}
+  #contact h2.font-display{font-size:2.1rem!important;}
+  .cap-cell h3{font-size:1.55rem!important;}
+  .cap-cell{padding:1.5rem 1rem 1.75rem!important;}
 }
 
-/* ── Tablet (768–1023px) ── */
+/* ─────────────────────────────────────────
+   TABLET 768–1023px
+───────────────────────────────────────── */
 @media(min-width:768px) and (max-width:1023px){
-  #hero h1{font-size:clamp(4rem,10vw,7rem)!important;}
-  .cap-cell{padding:1.75rem 1.5rem 2.25rem!important;}
-  #contact .lg\\:col-span-4{grid-column:span 12!important;}
-  #contact .lg\\:col-span-5{grid-column:span 7!important;}
-  #contact .lg\\:col-span-3{grid-column:span 5!important;}
+  #hero h1{font-size:clamp(3.6rem,8.5vw,6rem)!important;}
+  .cap-cell{padding:1.75rem 1.5rem 2rem!important;}
+  #about .md\:col-span-4{grid-column:span 5!important;}
+  #about .md\:col-span-8{grid-column:span 7!important;}
+  #contact .lg\:col-span-4{grid-column:span 12!important;margin-bottom:1rem;}
+  #contact .lg\:col-span-5{grid-column:span 7!important;}
+  #contact .lg\:col-span-3{grid-column:span 5!important;}
+  .dark-cta-row{flex-wrap:wrap!important;gap:.75rem!important;}
+  #meth-grid{grid-template-columns:repeat(2,1fr)!important;}
+  .meth-cell:nth-child(2){border-right:none!important;}
+  .meth-cell:nth-child(3),.meth-cell:nth-child(4){border-bottom:none!important;}
+}
+
+/* ─────────────────────────────────────────
+   LARGE DESKTOP ≥ 1440px
+───────────────────────────────────────── */
+@media(min-width:1440px){
+  .cap-cell{padding:2.5rem 2.5rem 3rem!important;}
 }
 </style>
 </head>
@@ -396,7 +526,7 @@ html{scroll-behavior:smooth;}
         <em style="color:#d6d5d5;">craftsmanship.</em>
       </h1>
       <p class="font-mono text-[10px] md:text-[11px] uppercase tracking-[.32em] mt-8 max-w-lg mx-auto" style="color:rgba(255,255,255,0.55);line-height:2;">
-        Made in Italy. Built for the world.  ·  <a href="tel:+447882712887" style="color:rgba(255,255,255,0.55);letter-spacing:.06em;">+44 788 271 2887</a>
+        Made in Italy. Built for the world.
       </p>
     </div>
 
@@ -595,7 +725,7 @@ html{scroll-behavior:smooth;}
     <div class="rv border border-[#F5F4F0]/10" style="transition-delay:.1s;">
 
       <!-- Header -->
-      <div class="grid grid-cols-12 gap-2 md:gap-4 px-4 md:px-8 py-4 border-b border-[#F5F4F0]/10 font-mono text-[9px] uppercase tracking-widest" style="color:rgba(245,244,240,.3);">
+      <div class="foundations-header grid grid-cols-12 gap-2 md:gap-4 px-4 md:px-8 py-4 border-b border-[#F5F4F0]/10 font-mono text-[9px] uppercase tracking-widest" style="color:rgba(245,244,240,.3);">
         <div class="col-span-6">Foundation</div>
         <div class="col-span-2 text-center">FMT</div>
         <div class="col-span-2 text-center">Others</div>
@@ -603,42 +733,38 @@ html{scroll-behavior:smooth;}
       </div>
 
       <!-- Row 1 -->
-      <div class="grid grid-cols-12 gap-2 md:gap-4 px-4 md:px-8 py-5 md:py-7 border-b border-[#F5F4F0]/8 items-center">
-        <div class="col-span-6">
+      <div class="found-row px-4 md:px-8 py-5 md:py-7 border-b border-[#F5F4F0]/8">
+        <div class="found-desc">
           <p class="font-display font-normal text-[#F5F4F0] text-[1.1rem] md:text-[1.2rem] tracking-tight leading-snug">Strategy &amp; Discovery Workshop</p>
           <p class="font-mono text-[8px] uppercase tracking-wider mt-1.5" style="color:rgba(245,244,240,.35);">Market positioning · Brand audit · Goal mapping</p>
         </div>
-        <div class="col-span-2 text-center">
-          <span class="font-display text-[#F5F4F0] text-[1.3rem]">✓</span>
+        <div class="found-meta flex items-center justify-between md:grid md:grid-cols-3 md:gap-4">
+          <div class="text-center"><span class="font-display text-[#F5F4F0] text-[1.3rem]">✓</span></div>
+          <div class="text-center"><span class="font-display text-[1.3rem]" style="color:rgba(245,244,240,.22);">✗</span></div>
+          <div class="text-right font-mono text-[11px] uppercase tracking-wider" style="color:rgba(245,244,240,.5);">£750</div>
         </div>
-        <div class="col-span-2 text-center">
-          <span class="font-mono text-[8px]" style="color:rgba(245,244,240,.25);">✗</span>
-        </div>
-        <div class="col-span-2 text-right font-mono text-[11px] uppercase tracking-wider" style="color:rgba(245,244,240,.5);">£750</div>
       </div>
 
       <!-- Row 2 -->
-      <div class="grid grid-cols-12 gap-2 md:gap-4 px-4 md:px-8 py-5 md:py-7 items-center">
-        <div class="col-span-6">
+      <div class="found-row px-4 md:px-8 py-5 md:py-7">
+        <div class="found-desc">
           <p class="font-display font-normal text-[#F5F4F0] text-[1.1rem] md:text-[1.2rem] tracking-tight leading-snug">Competitor Analysis</p>
           <p class="font-mono text-[8px] uppercase tracking-wider mt-1.5" style="color:rgba(245,244,240,.35);">Landscape mapping · Opportunity gaps · Visual benchmarking</p>
         </div>
-        <div class="col-span-2 text-center">
-          <span class="font-display text-[#F5F4F0] text-[1.3rem]">✓</span>
+        <div class="found-meta flex items-center justify-between md:grid md:grid-cols-3 md:gap-4">
+          <div class="text-center"><span class="font-display text-[#F5F4F0] text-[1.3rem]">✓</span></div>
+          <div class="text-center"><span class="font-display text-[1.3rem]" style="color:rgba(245,244,240,.22);">✗</span></div>
+          <div class="text-right font-mono text-[11px] uppercase tracking-wider" style="color:rgba(245,244,240,.5);">£1,000</div>
         </div>
-        <div class="col-span-2 text-center">
-          <span class="font-mono text-[8px]" style="color:rgba(245,244,240,.25);">✗</span>
-        </div>
-        <div class="col-span-2 text-right font-mono text-[11px] uppercase tracking-wider" style="color:rgba(245,244,240,.5);">£1,000</div>
       </div>
 
       <!-- Footer: total + 0 cost -->
-      <div class="px-4 md:px-8 py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4" style="background:rgba(245,244,240,.04);border-top:1px solid rgba(245,244,240,.12);">
+      <div id="foundations-footer" class="px-4 md:px-8 py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4" style="background:rgba(245,244,240,.04);border-top:1px solid rgba(245,244,240,.12);">
         <div>
           <p class="font-mono text-[9px] uppercase tracking-widest mb-1" style="color:rgba(245,244,240,.35);">Combined value</p>
           <p class="font-display text-[#F5F4F0] text-[1.6rem] font-normal tracking-tight">£1,750</p>
         </div>
-        <div class="text-right">
+        <div>
           <p class="font-mono text-[9px] uppercase tracking-widest mb-1" style="color:rgba(245,244,240,.35);">Your cost</p>
           <p class="font-display text-[2.2rem] font-normal tracking-tight" style="color:#d6d5d5;">£0</p>
         </div>
@@ -820,7 +946,7 @@ html{scroll-behavior:smooth;}
   <div class="max-w-6xl mx-auto">
     <!-- Intro: archive-style triptych, image | text -->
     <div class="mb-12 rv">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start" id="principles-intro-grid">
 
         <!-- Column 1: Florence image with archive label -->
         <div class="col-span-12 md:col-span-5 relative">
@@ -1028,8 +1154,8 @@ html{scroll-behavior:smooth;}
     </div>
 
     <!-- Table -->
-    <div class="overflow-x-auto -mx-6 md:mx-0 px-6 md:px-0">
-      <table class="w-full text-left border-collapse" style="min-width:600px;">
+    <div class="overflow-x-auto md:overflow-visible -mx-0">
+      <table class="w-full text-left border-collapse" style="min-width:0;">
         <thead>
           <tr style="border-bottom:1px solid rgba(26,26,24,0.18);">
             <th class="font-mono text-[9px] uppercase tracking-widest text-muted py-4 pr-6" style="font-weight:400;">Service</th>
@@ -1041,32 +1167,32 @@ html{scroll-behavior:smooth;}
         <tbody>
           <tr style="border-bottom:1px solid rgba(26,26,24,0.08);">
             <td class="font-display text-[1.05rem] py-5 pr-6 text-ink">Strategy &amp; Discovery Workshop</td>
-            <td class="py-5 px-3 text-center"><span style="font-family:'Instrument Serif',serif;font-size:1.2rem;color:#1A1A18;font-weight:400;">,</span></td>
-            <td class="py-5 px-3 text-center"><span style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#6B6B65;opacity:.35;letter-spacing:.1em;">·</span></td>
+            <td class="py-5 px-3 text-center"><span style="font-family:'Instrument Serif',serif;font-size:1.2rem;color:#1A1A18;font-weight:400;">✓</span></td>
+            <td class="py-5 px-3 text-center"><span class="font-mono text-[10px]" style="color:#6B6B65;opacity:.35;">·</span></td>
             <td class="py-5 pl-6 font-mono text-[10px] uppercase tracking-wider text-muted text-right">£750</td>
           </tr>
           <tr style="border-bottom:1px solid rgba(26,26,24,0.08);">
             <td class="font-display text-[1.05rem] py-5 pr-6 text-ink">Competitor Analysis</td>
-            <td class="py-5 px-3 text-center"><span style="font-family:'Instrument Serif',serif;font-size:1.2rem;color:#1A1A18;font-weight:400;">,</span></td>
-            <td class="py-5 px-3 text-center"><span style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#6B6B65;opacity:.35;letter-spacing:.1em;">·</span></td>
+            <td class="py-5 px-3 text-center"><span style="font-family:'Instrument Serif',serif;font-size:1.2rem;color:#1A1A18;font-weight:400;">✓</span></td>
+            <td class="py-5 px-3 text-center"><span class="font-mono text-[10px]" style="color:#6B6B65;opacity:.35;">·</span></td>
             <td class="py-5 pl-6 font-mono text-[10px] uppercase tracking-wider text-muted text-right">£1,000</td>
           </tr>
           <tr style="border-bottom:1px solid rgba(26,26,24,0.08);">
             <td class="font-display text-[1.05rem] py-5 pr-6 text-ink">SEO Foundations Setup</td>
-            <td class="py-5 px-3 text-center"><span style="font-family:'Instrument Serif',serif;font-size:1.2rem;color:#1A1A18;font-weight:400;">,</span></td>
-            <td class="py-5 px-3 text-center"><span style="font-family:'Instrument Serif',serif;font-size:1.2rem;color:#6B6B65;opacity:.5;font-weight:400;">,</span></td>
+            <td class="py-5 px-3 text-center"><span style="font-family:'Instrument Serif',serif;font-size:1.2rem;color:#1A1A18;font-weight:400;">✓</span></td>
+            <td class="py-5 px-3 text-center"><span class="font-mono text-[10px]" style="color:#6B6B65;opacity:.35;">·</span></td>
             <td class="py-5 pl-6 font-mono text-[10px] uppercase tracking-wider text-muted text-right">£500</td>
           </tr>
           <tr style="border-bottom:1px solid rgba(26,26,24,0.08);">
             <td class="font-display text-[1.05rem] py-5 pr-6 text-ink">Mobile &amp; Desktop Optimisation</td>
-            <td class="py-5 px-3 text-center"><span style="font-family:'Instrument Serif',serif;font-size:1.2rem;color:#1A1A18;font-weight:400;">,</span></td>
-            <td class="py-5 px-3 text-center"><span style="font-family:'Instrument Serif',serif;font-size:1.2rem;color:#6B6B65;opacity:.5;font-weight:400;">,</span></td>
+            <td class="py-5 px-3 text-center"><span style="font-family:'Instrument Serif',serif;font-size:1.2rem;color:#1A1A18;font-weight:400;">✓</span></td>
+            <td class="py-5 px-3 text-center"><span class="font-mono text-[10px]" style="color:#6B6B65;opacity:.35;">·</span></td>
             <td class="py-5 pl-6 font-mono text-[10px] uppercase tracking-wider text-muted text-right">£750</td>
           </tr>
           <tr style="border-bottom:1px solid rgba(26,26,24,0.08);">
             <td class="font-display text-[1.05rem] py-5 pr-6 text-ink">Double QA Testing Process</td>
-            <td class="py-5 px-3 text-center"><span style="font-family:'Instrument Serif',serif;font-size:1.2rem;color:#1A1A18;font-weight:400;">,</span></td>
-            <td class="py-5 px-3 text-center"><span style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#6B6B65;opacity:.35;letter-spacing:.1em;">·</span></td>
+            <td class="py-5 px-3 text-center"><span style="font-family:'Instrument Serif',serif;font-size:1.2rem;color:#1A1A18;font-weight:400;">✓</span></td>
+            <td class="py-5 px-3 text-center"><span class="font-mono text-[10px]" style="color:#6B6B65;opacity:.35;">·</span></td>
             <td class="py-5 pl-6 font-mono text-[10px] uppercase tracking-wider text-muted text-right">£500</td>
           </tr>
           <tr style="border-top:2px solid rgba(26,26,24,0.85);">
