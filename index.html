@@ -177,33 +177,34 @@ html{scroll-behavior:smooth;}
 
   /* ── HERO ─────────────────────────────── */
   #hero h1{font-size:15vw!important;line-height:.88!important;}
-  /* Everything anchored to bottom — label hidden, headline + CTA flush to base */
+  #hero{min-height:0!important;}
   #hero .relative.z-20{
-    padding-top:0!important;
-    padding-bottom:2.5rem!important;
+    padding-top:5.5rem!important;
+    padding-bottom:3.5rem!important;
     padding-left:1.5rem!important;
     padding-right:1.5rem!important;
-    justify-content:flex-end!important;
-    gap:1.75rem!important;
+    justify-content:space-between!important;
+    gap:2rem!important;
+    min-height:0!important;
   }
-  /* Hide top label on mobile — cleaner */
-  #hero .relative.z-20 > p.font-mono{ display:none!important; }
-  /* Headline: left-aligned on mobile, not centered */
+  /* Top label visible */
+  #hero .relative.z-20 > p.font-mono{ display:flex!important; }
+  /* Headline: left-aligned */
   #hero .relative.z-20 > div.flex.flex-col{
     align-items:flex-start!important;
     text-align:left!important;
     margin:0!important;
   }
-  /* Tagline: left-align, reduce top gap */
+  /* Tagline: hide on mobile */
   #hero .relative.z-20 > div.flex.flex-col > p.font-mono{
-    margin-left:0!important;
-    margin-right:auto!important;
-    margin-top:.75rem!important;
-    text-align:left!important;
-    font-size:.7rem!important;
+    display:none!important;
   }
-  /* Hero bottom: natural flow */
-  .hero-bottom{ gap:1rem!important; }
+  /* Description text: full width, visible */
+  #hero .hero-bottom p.font-sans{
+    max-width:100%!important;
+    font-size:.8rem!important;
+  }
+  .hero-bottom{ gap:.875rem!important; }
 
   /* ── GLOBAL SECTION PADDING ─────────────*/
   section,footer#contact{
@@ -213,7 +214,7 @@ html{scroll-behavior:smooth;}
   /* Consistent vertical rhythm across sections */
   section{
     padding-top:3rem!important;
-    padding-bottom:3rem!important;
+    padding-bottom:2rem!important;
   }
 
   /* ── TYPOGRAPHY SCALE ────────────────── */
@@ -549,7 +550,7 @@ html{scroll-behavior:smooth;}
 
     <!-- Bottom row -->
     <div class="hero-bottom flex flex-col md:flex-row items-start md:items-end justify-between gap-5 rv on" style="transition-delay:.32s;">
-      <!-- Description, white text, dark frosted bg -->
+      <!-- Description, hidden on mobile to reduce scroll -->
       <p class="font-sans text-sm max-w-[260px]"
          style="color:rgba(255,255,255,0.85);line-height:1.88;text-shadow:0 1px 12px rgba(7,8,11,.9);">
         For centuries, Italian artisans, architects and designers have been recognised for their pursuit of excellence. We apply the same principles to corporate web design.
