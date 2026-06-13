@@ -177,17 +177,17 @@ html{scroll-behavior:smooth;}
 
   /* ── HERO ─────────────────────────────── */
   #hero h1{font-size:15vw!important;line-height:.88!important;}
-  #hero{min-height:0!important;}
+  #hero{min-height:0!important;padding-left:0!important;padding-right:0!important;}
   #hero .relative.z-20{
-    padding-top:5.5rem!important;
-    padding-bottom:3.5rem!important;
+    padding-top:6.5rem!important;
+    padding-bottom:4.5rem!important;
     padding-left:1.5rem!important;
     padding-right:1.5rem!important;
     justify-content:space-between!important;
-    gap:2rem!important;
+    gap:2.5rem!important;
     min-height:0!important;
   }
-  /* Top label visible */
+  /* Top label */
   #hero .relative.z-20 > p.font-mono{ display:flex!important; }
   /* Headline: left-aligned */
   #hero .relative.z-20 > div.flex.flex-col{
@@ -196,10 +196,8 @@ html{scroll-behavior:smooth;}
     margin:0!important;
   }
   /* Tagline: hide on mobile */
-  #hero .relative.z-20 > div.flex.flex-col > p.font-mono{
-    display:none!important;
-  }
-  /* Description text: full width, visible */
+  #hero .relative.z-20 > div.flex.flex-col > p.font-mono{ display:none!important; }
+  /* Description text */
   #hero .hero-bottom p.font-sans{
     max-width:100%!important;
     font-size:.8rem!important;
