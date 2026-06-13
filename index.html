@@ -176,15 +176,34 @@ html{scroll-behavior:smooth;}
   .hero-bottom{flex-direction:column;align-items:flex-start;gap:1.5rem;}
 
   /* ── HERO ─────────────────────────────── */
-  #hero h1{font-size:16vw!important;line-height:.88!important;}
-  /* Override Tailwind px-6 pt-24 pb-10 — match section padding exactly */
+  #hero h1{font-size:15vw!important;line-height:.88!important;}
+  /* Everything anchored to bottom — label hidden, headline + CTA flush to base */
   #hero .relative.z-20{
-    padding-top:5rem!important;
-    padding-bottom:2rem!important;
+    padding-top:0!important;
+    padding-bottom:2.5rem!important;
     padding-left:1.5rem!important;
     padding-right:1.5rem!important;
+    justify-content:flex-end!important;
+    gap:1.75rem!important;
   }
-  #hero p.font-mono{font-size:.72rem!important;margin-top:1rem!important;}
+  /* Hide top label on mobile — cleaner */
+  #hero .relative.z-20 > p.font-mono{ display:none!important; }
+  /* Headline: left-aligned on mobile, not centered */
+  #hero .relative.z-20 > div.flex.flex-col{
+    align-items:flex-start!important;
+    text-align:left!important;
+    margin:0!important;
+  }
+  /* Tagline: left-align, reduce top gap */
+  #hero .relative.z-20 > div.flex.flex-col > p.font-mono{
+    margin-left:0!important;
+    margin-right:auto!important;
+    margin-top:.75rem!important;
+    text-align:left!important;
+    font-size:.7rem!important;
+  }
+  /* Hero bottom: natural flow */
+  .hero-bottom{ gap:1rem!important; }
 
   /* ── GLOBAL SECTION PADDING ─────────────*/
   section,footer#contact{
